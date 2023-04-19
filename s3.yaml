@@ -10,3 +10,5 @@ Resources:
       Name: Mybucket
       Type: String
       Value: !GetAtt BucketS3.Arn
+# The command line
+#aws cloudformation create-stack --stack-name my-s3-bucket --template-body file://s3.yaml --parameters ParameterKey=BucketName,ParameterValue=my-bucket-name
