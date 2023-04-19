@@ -3,3 +3,10 @@ Resources:
     Type: "AWS::S3::Bucket"
     Properties:
       BucketName: STD21004
+
+  BucketSSM:
+    Type: "AWS::SSM::Parameter"
+    Properties:
+      Name: Mybucket
+      Type: String
+      Value: !GetAtt BucketS3.Arn
