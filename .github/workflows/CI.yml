@@ -1,4 +1,4 @@
-name: Deploy CloudFormation stack
+name: Deploy S3 stack
 
 on:
   push:
@@ -20,8 +20,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
+      - name: Validate CloudFormation template
+        run: aws cloudformation validate-template --template-body file://s3.yaml
+
       - name: Deploy CloudFormation stack
-        run: |
-          aws cloudformation deploy \
-            --stack-name my-stack \
-            --template-file s3.yaml \
+        run: aws cloudformation deploy --template-file s3.yaml --stack-name my-s3-stack --capabilities CAPABILITY_NAMED_IAM
