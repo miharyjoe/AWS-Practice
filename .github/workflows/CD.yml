@@ -23,4 +23,4 @@ jobs:
 
       - name: Deploy CloudFormation stack
         run: |
-          aws cloudformation create-stack --stack-name s3 --template-body file://s3.yaml
+          aws cloudformation create-stack --template-body file://s3.yaml
